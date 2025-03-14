@@ -4,7 +4,7 @@ import logging
 import psycopg2
 import uuid 
 import json
-redis_conn = Redis(host="<<hostname>>", db=0, socket_timeout=5, decode_responses=True)
+redis_conn = Redis(host="redis", db=0, socket_timeout=5, decode_responses=True)
 logging.basicConfig(level=logging.INFO)
 
 logging.info('Starting')
@@ -16,10 +16,10 @@ while True:
         conn = None
         try:
             conn = psycopg2.connect(
-                host="<<hostname>>",
-                database="<<databasename>>",
-                user="<<user>>",
-                password="<<password>>")
+                host="votes-dbsrv",
+                database="database",
+                user="user",
+                password="password")
 
             logging.info('Connected to postgres.')
 
